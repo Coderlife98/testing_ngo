@@ -46,7 +46,7 @@ const App = () => {
     }
   }, []);
   return (
-    <div className="bg-black text-white min-h-screen w-full">
+    <div className="bg-black text-white min-h-screen w-full relative">
       {loading && <Preloader />} {/* 🔹 Show preloader when loading */}
       {console.log("token daata 1", navToken)}
       {navToken ? <Navbar /> : <Navbar_website />}
