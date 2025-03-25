@@ -27,29 +27,30 @@ import Edit_Event from "../../admin/src/pages/Edit_Event";
 import Edit_Team from "../../admin/src/pages/Edit_Team";
 import Edit_Project from "../../admin/src/pages/Edit_Project";
 import Edit_Slider from "../../admin/src/pages/Edit_Slider";
-import Team_Admin from "../../admin/src/pages/Team_Admin"
-import Project_Admin from "../../admin/src/pages/Project_Admin"
+import Team_Admin from "../../admin/src/pages/Team_Admin";
+import Project_Admin from "../../admin/src/pages/Project_Admin";
 const App = () => {
   const loading = useSelector(selectLoading); // Check loading state
   const dispatch = useDispatch();
-  const [navToken, setNavToken] = useState(localStorage.getItem("token")); // Initialize directly
+  const [navToken, setNavToken] = useState(); // Initialize directly
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user"));
-
     if (token && user) {
       dispatch(loginSuccess({ user, token }));
       setNavToken(token); // Update state
+      console.log("login navbar problem", navToken);
     } else {
-      setNavToken(null); // Ensure state updates on logout
+      setNavToken(); // Ensure state updates on logout
     }
-  }, [dispatch]); // Only run when dispatch changes
+  }, []);
   return (
     <div className="bg-black text-white min-h-screen w-full">
       {loading && <Preloader />} {/* 🔹 Show preloader when loading */}
+      {console.log("token daata 1", navToken)}
       {navToken ? <Navbar /> : <Navbar_website />}
-      {console.log("stt", navToken)}
+      {console.log("token daata 2", navToken)}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Slider_web from "../components/Slider_web";
 
 const Home = () => {
   return (
     <div>
-      Home
+      <Slider_web />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

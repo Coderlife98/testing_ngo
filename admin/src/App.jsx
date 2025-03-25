@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import ProtectedRoute from "../../frontend/src/components/ProtectedRoute";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS file for default styling
 
@@ -9,16 +8,15 @@ const App = () => {
   return (
     <div className="bg-black h-screen w-full text-white">
       <Routes>
-    
         {/* Wrap all admin routes with AdminLayout */}
-        <Route
+        {/* <Route
           path="/admin/*"
           element={
             <ProtectedRoute>
               <Layout_Outlet />
             </ProtectedRoute>
           }
-        />
+        /> */}
        
       </Routes>
       <ToastContainer />
